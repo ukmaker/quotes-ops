@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: quotes-api-container
-        image: europe-west1-docker.pkg.dev/modified-petal-219616/komodor/python-quote-app:0.1.0
+        image: europe-west1-docker.pkg.dev/modified-petal-219616/komodor/python-quote-app:0.2.0
         ports:
         - containerPort: 5000
         livenessProbe:
