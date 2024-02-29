@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quotes-api-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: quotes-api
+  template:
+    metadata:
+      labels:
+        app: quotes-api
+    spec:
+      containers:
+      - name: quotes-api-container
+        image: europe-west1-docker.pkg.dev/modified-petal-219616/komodor/python-quote-app:0.1.0
+        ports:
+        - containerPort: 5000
