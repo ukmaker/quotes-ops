@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: quotes-api-deployment
+  namespace: demo
 spec:
   replicas: 3
   selector:
@@ -17,3 +18,8 @@ spec:
         image: europe-west1-docker.pkg.dev/modified-petal-219616/komodor/python-quote-app:0.1.0
         ports:
         - containerPort: 5000
+        livenessProbe:
+          httpGet:
+            path: /healthz
+          initialDelaySeconds: 10
+          periodSeconds: 10
